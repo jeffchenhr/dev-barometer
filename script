@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+arm-none-eabi-gdb << 'EOD'
+target extended-remote /dev/cu.usbmodemE2C5A9C1
+mon swdp_scan
+attach 1
+y
+file main.elf
+load
+EOD
